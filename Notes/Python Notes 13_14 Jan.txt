@@ -1,0 +1,49 @@
+5) Variable arguments dictionary
+
+def VariableArgsDictionaryDemo(a,b,c,*args,**kwargs):
+    print(a,b,c)
+    print(type(args))
+    for x in args:
+        print x
+    print(type(kwargs))
+    for key in kwargs:
+        print(key,kwargs[key])
+
+def main():
+    VariableArgsDictionaryDemo(1,2,3,7,8,9,10,name="Jyoti",hobby="Programming")
+
+if __name__=='__main__':
+    main()
+
+(1, 2, 3)
+<type 'tuple'>
+7
+8
+9
+10
+<type 'dict'>
+('hobby', 'Programming')
+('name', 'Jyoti')
+
+def varArgDict(**kwargs):
+    for key,value in kwargs.items():
+        print(key,value)
+
+def main():
+    varArgDict(name="Jyoti",hobby="Programming")
+
+if __name__=='__main__':
+    main()
+	
+('hobby', 'Programming')
+('name', 'Jyoti')
+
+
+when all arguments are mixed in function then **kwargs should be at last
+
+14 Jan
+
+Bitiwse
+
+>>> bin(782)
+'0b1100001110'

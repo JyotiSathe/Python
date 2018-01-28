@@ -1,0 +1,272 @@
+deque --> doubly ended queue
+
+>>> l2=collections.deque(l1)
+>>> type(l2)
+<class 'collections.deque'>
+>>> l2
+deque([1, 2, 3, 4, 5])
+>>> x=collections.deque()
+>>> x
+deque([])
+>>> x.append(1)
+>>> x
+deque([1])
+>>> x.append(2)
+>>> x
+deque([1, 2])
+>>> x.append(3)
+>>> x
+deque([1, 2, 3])
+>>> x.appendleft(30)
+>>> x
+deque([30, 1, 2, 3])
+>>> x.pop()
+3
+>>> x.popleft()
+30
+>>> x
+deque([1, 2])
+>>> x.append(4)
+>>> x
+deque([1, 2, 4])
+>>> type(x)
+<class 'collections.deque'>
+>>> 
+
+===========================================
+
+[<result_expression> <iteration on container> [<condition if any>]]
+
+
+
+
+
+
+tuple -->
+container of heterogeneous elements
+immutable
+
+
+>>> mytuple=(1,2,3,4,5)
+>>> type(mytuple)
+<type 'tuple'>
+>>> 3 in mytuple
+True
+
+>>> tuple2=(1,2,3,4,5)
+>>> tuple2==mytuple
+True
+>>> id(tuple2)
+53115616
+>>> id(mytuple)
+53165584
+>>> 
+
+for read only purpose send list as tuple
+
+
+Set 
+unique elements
+>>> x=set([1,2,3,4,5,6])
+>>> x
+set([1, 2, 3, 4, 5, 6])
+>>> type(x)
+<type 'set'>
+>>> x=set([1,2,3,4,3,1])
+>>> x
+set([1, 2, 3, 4])
+>>> x=set("nitin")
+>>> x
+set(['i', 't', 'n'])
+
+set can be useful when we want data and if we perform set operations which will return data which is required
+
+>>> x=set([1,2,3,4,5])
+>>> y=set([4,5,6,7,8])
+>>> x
+set([1, 2, 3, 4, 5])
+>>> y
+set([8, 4, 5, 6, 7])
+>>> x.difference(y)
+set([1, 2, 3])
+>>> y.difference(x)
+set([8, 6, 7])
+>>> x
+set([1, 2, 3, 4, 5])
+>>> y
+set([8, 4, 5, 6, 7])
+>>> x.difference_update(y)
+>>> x
+set([1, 2, 3])
+>>> x=set([1,2,3,4,5])
+>>> x.intersection(y)
+set([4, 5])
+>>> x.add(4)
+>>> x
+set([1, 2, 3, 4, 5])
+>>> x.add(10)
+>>> x
+set([1, 2, 3, 4, 5, 10])
+>>> x.add(10,20)
+
+Traceback (most recent call last):
+  File "<pyshell#70>", line 1, in <module>
+    x.add(10,20)
+TypeError: add() takes exactly one argument (2 given)
+
+>>> x.add([10,20]) <-- there is no hashable function for container
+
+Traceback (most recent call last):
+  File "<pyshell#71>", line 1, in <module>
+    x.add([10,20])
+TypeError: unhashable type: 'list'
+
+
+>>> x.add("Hello")
+>>> x
+set([1, 2, 3, 4, 5, 10, 'Hello'])
+>>> x.discard("Hello")
+>>> x
+set([1, 2, 3, 4, 5, 10])
+
+>>> y
+set([8, 4, 5, 6, 7])
+>>> x=set([1, 2, 3])
+>>> x.isdisjoint(y)
+True
+
+>>> x
+set([1, 2, 3])
+>>> y
+set([1, 2, 3, 4, 5, 6, 7, 8])
+>>> x.issubset(y)
+True
+>>> y.issuperset(x)
+True
+
+>>> x
+set([2, 3])
+>>> y
+set([1, 2, 3, 5, 6, 7, 8])
+>>> x.symmetric_difference(y)
+set([1, 5, 6, 7, 8])
+
+>>> x
+set([1, 2, 3])
+>>> x.pop()
+1
+>>> x
+set([2, 3])
+>>> x.pop()
+2
+>>> x.pop()
+3
+>>> x.pop()
+
+Traceback (most recent call last):
+  File "<pyshell#101>", line 1, in <module>
+    x.pop()
+KeyError: 'pop from an empty set'
+
+>>> y
+set([1, 2, 3, 4, 5, 6, 7, 8])
+>>> y.remove(10)
+
+Traceback (most recent call last):
+  File "<pyshell#92>", line 1, in <module>
+    y.remove(10)
+KeyError: 10
+>>> y.remove(4)
+>>> y
+set([1, 2, 3, 5, 6, 7, 8])
+
+>>> x.union(y)
+set([1, 2, 3, 5, 6, 7, 8])
+
+>>> x
+set([1, 2, 3, 4, 5])
+>>> y
+set([1, 2, 3, 5, 6, 7, 8])
+>>> x.update(y)
+>>> x
+set([1, 2, 3, 4, 5, 6, 7, 8])
+
+Dictionary
+
+unordered collection
+mutable
+no slicing as there is no index 
+
+>>> x={1:2,2:3}
+>>> type(x)
+<type 'dict'>
+>>> x[1]
+2
+>>> x[2]
+3
+
+>>> x["hi"]=5
+>>> x
+{1: 2, 2: 3, 'hi': 5}
+>>> x[hi]=6
+
+Traceback (most recent call last):
+  File "<pyshell#114>", line 1, in <module>
+    x[hi]=6
+NameError: name 'hi' is not defined
+>>> hi=6
+>>> x[hi]=7
+>>> x
+{1: 2, 2: 3, 'hi': 5, 6: 7}
+
+>>> x.keys()
+[1, 2, 'hi', 6]
+
+>>> x.values()
+[2, 3, 5, 7]
+
+>>> x.items()
+[(1, 2), (2, 3), ('hi', 5), (6, 7)]
+
+>>> for key,value in x.items():
+	print key,value
+
+	
+1 2
+2 3
+hi 5
+6 7
+>>> for key in x:
+	print key,x[key]
+
+	
+1 2
+2 3
+hi 5
+6 7
+
+>>> del x[1]
+>>> x
+{2: 3, 'hi': 5, 6: 7}
+
+>> dict.fromkeys(x) <-- static method cannot be invoked on object
+{2: None, 'hi': None, 6: None}
+>>> dict.fromkeys(x,"new")
+{'hi': 'new', 6: 'new'}
+>>> x
+{'hi': 5, 6: 7}
+>>> dict.fromkeys(x,[7,8,9])
+{'hi': [7, 8, 9], 6: [7, 8, 9]}
+
+>>> x.pop(2)
+3
+>>> x
+{'hi': 5, 6: 7}
+>>> x.pop(4)
+
+Traceback (most recent call last):
+  File "<pyshell#138>", line 1, in <module>
+    x.pop(4)
+KeyError: 4
+>>> x.pop(4,"not present")
+'not present'

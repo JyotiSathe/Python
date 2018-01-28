@@ -1,0 +1,248 @@
+06/01
+
+
+if(a>b)
+	if(b>c)
+		print("Good")
+else
+	print("It's a catch")
+	
+else is coupled with closest lexical if
+
+1) 
+a=100
+b=20
+c=10
+
+Output : Good
+
+2)
+a=20
+b=30
+c=10
+
+Output : Nothing will be printed
+
+for <loop_control> in <container>: 
+	<body>
+else: (when for loop completes successfully)
+	<body of else>
+	
+>>> for i in range(10):
+	print i
+else:
+	print("Loop executed successfully")
+
+	
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Loop executed successfully
+
+>>> for i in range(10):
+	print i
+	if(i==5):
+		break
+else:
+	print("Loop executed successfully")
+
+	
+0
+1
+2
+3
+4
+5
+
+while <condition>:
+	<body>
+else:
+	<else-body>
+
+>>> i=1
+>>> while i<10:
+	print(i)
+	i=i+1
+else:
+	print("Loop executed successfully")
+
+	
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Loop executed successfully
+
+>>> i=1
+>>> while i<10:
+	print(i)
+	i=i+1
+	if(i==5):
+		break
+else:
+	print("Loop executed successfully")
+
+	
+1
+2
+3
+4
+
+Jump statemets:
+1: break
+2: continue --> skips current execution
+3: return --> execution back to caller
+4: pass --> Do nothing
+def Test():
+	pass
+
+>>> for i in range(100):
+	if(i==10):
+		break
+	print i
+
+	
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+>>> for i in range(100):
+	if(i%5==0):
+		print i
+
+		
+0
+5
+10
+15
+20
+25
+30
+35
+40
+45
+50
+55
+60
+65
+70
+75
+80
+85
+90
+95
+
+for _ in range(100000):
+	pass
+
+_ is anonymous variable
+above loop is called time delay loops
+In multithreaded env, sleep results into context switch, if you dont want context switch there you can use time delay loops
+
+>>> for _ in range(1000000):
+	pass
+else:
+	print ("Time delay loops executed")
+
+	
+Time delay loops executed
+
+
+Functions -- Arguments
+
+1) Positional arguments:
+
+def PositionalArgumentsDemo(a,b):
+    print("Positional Arguments are a={} and b={}".format(a,b))
+
+def main():
+    PositionalArgumentsDemo(10,20)
+
+if __name__=='__main__':
+    main()
+
+Output:
+	
+Positional Arguments are a=10 and b=20
+>>> 
+
+2) Keyword arguments:
+
+def KeywordArgumentsDemo(a,b):
+    print("Keyword Arguments are a={} and b={}".format(a,b))
+
+def main():
+    KeywordArgumentsDemo(b=10,a=20)
+
+if __name__=='__main__':
+    main()
+
+Keyword Arguments are a=20 and b=10
+>>> 
+
+Test(a,b,c,d): <-- in mixture of arguments keyword arguments should be trailing
+
+Test(1,2,d=10,c=20)
+
+3) Default parameters:
+
+def DefualtArgumentsDemo(a,b=100):
+    print("Default Arguments are a={} and b={}".format(a,b))
+
+def main():
+    DefualtArgumentsDemo(10)
+    DefualtArgumentsDemo(20)
+    DefualtArgumentsDemo(20,30)
+
+if __name__=='__main__':
+    main()
+
+Default Arguments are a=10 and b=100
+Default Arguments are a=20 and b=100
+Default Arguments are a=20 and b=30
+
+Test(a=10,b,c): <-- default arguments must be trailing
+
+Test(20,30) <-- this will not have value of c now
+
+4) Variable Arguments:
+
+def VariableNumberOfArgumentsDemo(*args):
+    print(type(args))
+    for i in args:
+        print i,
+
+def main():
+    VariableNumberOfArgumentsDemo(1,2,3,4)
+    print
+    VariableNumberOfArgumentsDemo(11,23,24,56,55,"hi","bye")
+
+if __name__=='__main__':
+    main()
+
+<type 'tuple'>
+1 2 3 4
+<type 'tuple'>
+11 23 24 56 55 hi bye
+>>> 
+
+5) 

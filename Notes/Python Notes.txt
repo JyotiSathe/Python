@@ -1,0 +1,184 @@
+every .py is a module
+and for every .py module there is internal var __name__ which is bound to __main__
+
+main_demo.py
+#!/usr/bin/python
+#__name__='__main__'
+print("This line executes always "+__name__)
+def main():
+    print("It's python's main function")
+if __name__=='__main__':
+    main()
+	
+	
+we can directly write print statement in if condition as well
+
+on interpreter(cmd) when we do "import main_demo" it do not execute main function
+F:\Python>C:\Python27\python.exe
+Python 2.7.14 (v2.7.14:84471935ed, Sep 16 2017, 20:19:30) [MSC v.1500 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import main_demo
+This line executes always main_demo
+>>> exit()
+
+if we want to execute we can explicitly define "__name__='__main__'"
+F:\Python>C:\Python27\python.exe
+Python 2.7.14 (v2.7.14:84471935ed, Sep 16 2017, 20:19:30) [MSC v.1500 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import main_demo
+This line executes always main_demo
+It's python's main function
+
+on interpreter __name__ is main_demo --> importing it to have re usability
+and on python idle (as standalone) it will be __main__  --> independent standalone program
+
+
+
+explicit method call --> main_demo.main() --> on cmd
+
+whichever function we are calling that should be defined before the invocation only(before usage)
+
+
+==================
+Data Types:
+why?
+
+Representation
+Type System
+	Type compatibility
+	Type Equivalence/reference
+	
+String-str
+Integer-int	(4 B)
+float (6)
+double (10)
+
+F:\Python>C:\Python27\python.exe
+>>> x="Hi"
+>>> type(x)
+<type 'str'>
+>>> x=10
+>>> type(x)
+<type 'int'>
+>>> x=10.15
+>>> type(x)
+<type 'float'>
+
+
+>>> x=10
+>>> type(x)
+<type 'int'>
+>>> ++x ==> +(+x) positive of positive of x
+10
+>>> x++ ==> not supported in python
+  File "<stdin>", line 1
+    x++
+      ^
+SyntaxError: invalid syntax
+>>>
+
+
+we assigned to same var x
+how possible?
+	Python is dynamically typed
+	at runtime it gets the respective type of which it is having value
+
+Python supports complex data type
+
+>>> x=3+4j
+>>> type(x)
+<type 'complex'>
+>>> y=4+5j
+>>> x+y
+(7+9j)
+>>>
+
+
+How data is stored in Python?
+pass by value or pass by reference?
+
+>>> x=1000
+>>> id(x)
+8869976
+>>> y=x
+>>> id(y)
+8869976
+
+that means Python follows "reference model" 
+
+>>> z=1000
+>>> id(z)
+8869964
+
+X --> [1000] <-- Y , both pointing to same memory
+Z --> 1000
+
+if we changes y it create another location where 1002 is stored
+>>> y=1002
+>>> id(x)
+8869976
+>>> id(y)
+8869940
+
+Python performs Automatic Garbage Collection with reference count mechanism(at certain threshold, it sees if reference is 0 and it will remove it)
+and cycle detection, mark and sweep , stop and 
+
+
+
+>>> x=128
+>>> y=128
+>>> z=128
+>>> id(x),id(y),id(z)
+(7488812, 7488812, 7488812)
+
+what is the range it will be same (-5 to 256 range of numbers) for numbers
+
+>>> x=-5
+>>> y=-5
+>>> z=-5
+>>> id(x),id(y),id(z)
+(7488424, 7488424, 7488424)
+>>> x=256
+>>> y=256
+>>> z=256
+>>> id(x),id(y),id(z)
+(7491244, 7491244, 7491244)
+
+>>> x=-6
+>>> y=-6
+>>> z=-6
+>>> id(x),id(y),id(z)
+(8869856, 8869880, 8869976)
+>>> x=257
+>>> y=257
+>>> z=257
+>>> id(x),id(y),id(z)
+(8869952, 8869964, 8869916)
+
+>>> x="Hi"
+>>> y="Hi"
+>>> id(x)
+8421472
+>>> id(y)
+8421472
+>>> x="Hello world"
+>>> id(y)
+8421472
+>>> id(x)
+8421824
+
+same memory for single word string even if we explicitly gives z the same value
+
+>>> x="Hello"
+>>> y=x
+>>> z="Hello"
+>>> id(x),id(y),id(z)
+(8421472, 8421472, 8421472)
+
+Not for multi word string
+
+>>> x="Hello world"
+>>> y=x
+>>> z="Hello world"
+>>> id(x),id(y),id(z)
+(8422080, 8422080, 8422016)

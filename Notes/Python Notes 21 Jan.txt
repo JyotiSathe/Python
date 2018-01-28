@@ -1,0 +1,177 @@
+Collections --> Data structure provided by python
+
+List= collection of heterogeneous elements, mutable container
+
+Order is not important, unordered
+
+
+>>> x=[1,2,3,4,"Hi"]
+>>> type(x)
+<type 'list'>
+
+>>> x
+[1, 2, 3, 4, 'Hi']
+>>> for i in x:
+        print i
+
+	
+1
+2
+3
+4
+Hi
+>>> 
+
+mutable container
+>>> l1=[1,2,3]
+>>> l1.append(4)
+>>> l1
+[1, 2, 3, 4]
+
+no uniqueness
+>>> l1.append(1)
+>>> l1
+[1, 2, 3, 4, 1]
+
+>>> l1=[1,2,3]
+>>> l2=[4,5,6]
+>>> l1.append(l2)
+>>> l1
+[1, 2, 3, [4, 5, 6]]
+>>> l2
+[4, 5, 6]
+
+>>> for i in l1:
+	print i
+
+	
+1
+2
+3
+[4, 5, 6] <-- whole as a one element
+
+extend will extend your container, merge combine
+
+>>> l1=[1,2,3]
+>>> l2=[4,5,6]
+>>> l1.extend(l2)
+>>> l1
+[1, 2, 3, 4, 5, 6]
+>>> l2
+[4, 5, 6]
+
+extend needs container
+
+>>> l1.extend(1)
+
+Traceback (most recent call last):
+  File "<pyshell#35>", line 1, in <module>
+    l1.extend(1)
+TypeError: 'int' object is not iterable
+
+you can replace elements in list
+
+>>> l1=[1,2,3,4,5,11,1]
+>>> l1[3]=18
+>>> l1
+[1, 2, 3, 18, 5, 11, 1]
+
+You can check count of any element 
+
+>>> l1.count(1)
+2
+
+>>> len(l1)
+7
+
+>>> l1.index(111)
+
+Traceback (most recent call last):
+  File "<pyshell#42>", line 1, in <module>
+    l1.index(111)
+ValueError: 111 is not in list
+>>> l1.index(2)
+1
+
+>>> l1
+[1, 2, 3, 18, 5, 11, 1]
+>>> l1.pop(11)
+
+Traceback (most recent call last):
+  File "<pyshell#47>", line 1, in <module>
+    l1.pop(11)
+IndexError: pop index out of range
+>>> l1.pop(5)
+11
+>>> l1
+[1, 2, 3, 18, 5, 1]
+>>> l1.remove(18)
+>>> l1
+[1, 2, 3, 5, 1]
+>>> l1.remove(13)
+
+Traceback (most recent call last):
+  File "<pyshell#52>", line 1, in <module>
+    l1.remove(13)
+ValueError: list.remove(x): x not in list
+>>> 
+
+
+>>> l1
+[1, 2, 3, 5, 1]
+>>> l1.reverse()
+>>> l1
+[1, 5, 3, 2, 1]
+
+>>> l1.sort()
+>>> l1
+[1, 1, 2, 3, 5]
+
+3.x
+>>> l1=[1,2,3]
+>>> l1=[1,2,3,[4,5,6],7,8]
+>>> id(l1)
+57115912
+>>> id(l1[3])
+57171480
+>>> l2=l1.copy()
+>>> l2
+[1, 2, 3, [4, 5, 6], 7, 8]
+>>> id(l1)
+57115912
+>>> id(l1[3])
+57171480
+>>> import copy
+>>> l3=copy.deepcopy(l1)
+>>> id(l3[3])
+57335976
+>>> 
+
+2.7
+>>> import copy
+>>> l1=[1,2,3,[4,5,6],7,8]
+>>> id(l1)
+54067032
+>>> id(l1[3])
+54062936
+>>> l2=copy.copy(l1)
+>>> id(l2)
+54063992
+>>> id(l2[3])
+54062936
+>>> l3=copy.deepcopy(l1)
+>>> l3
+[1, 2, 3, [4, 5, 6], 7, 8]
+>>> id(l3[3])
+53899136
+
+shallow copy
+>>> l1[3].append(7)
+>>> l1
+[1, 2, 3, [4, 5, 6, 7], 7, 8]
+>>> l2
+[1, 2, 3, [4, 5, 6, 7], 7, 8]
+>>> 
+
+
+deep copy needs to be performed explicitly

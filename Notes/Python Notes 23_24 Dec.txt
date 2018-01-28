@@ -1,0 +1,326 @@
+23 Dec
+Continue...
+Datatypes:
+
+Strings
+
+x="India"
+I n d i a '\0'
+
+\0 String terminating character
+
+length =5
+>>> x="India"
+>>> x[1]
+'n'
+>>> x[-4]
+'n'
+
+to get substring
+x[index of character you want:add number of characters in index]
+x[start_index(inclusive):end_index(exclusive):<step_value>] <-- everything is optional   ---> calls internally getslice method x.__getslice__(i,j)
+
+>>> x[1:4]
+'ndi'
+>>> 
+
+>>> x="India"
+>>> x[:]
+'India'
+>>> x[3:]
+'ia'
+>>> x[:3]
+'Ind'
+
+While slicing no error, but when higher number error
+
+>>> x[5:1]
+''
+>>> x[20]
+
+Traceback (most recent call last):
+  File "<pyshell#18>", line 1, in <module>
+    x[20]
+IndexError: string index out of range
+>>> x[-5:-3]
+'In'
+>>> x[0:-3]
+'In'
+
+end index should come after start index
+
+>>> x[:6] --> here start index is zero
+'India'
+
+Default step value is 1
+
+>>> x[::2]
+'Ida'
+
+When step value is negative, then it automatically considers end index as start index
+
+as it will never reach to end index, 1+-2+-2+-2....
+
+>>> x[::-2]
+'adI'
+
+
+Why negative indexes?
+
+
+
+
+help(str)
+
+>>> x="Hello"
+>>> y=" World"
+>>> x+y          --> x.__add__(y) --> operator overloading
+'Hello World'
+
+>>> len(x)
+5
+>>> x.__len__()
+5
+
+>>> x="hello"
+>>> x.capitalize()
+'Hello'
+
+>>> x.count('l')
+2
+>>> (x+y).count('l')
+3
+
+>>> x="hello3bye"
+>>> x.isalnum()
+True
+>>> x.isdigit()
+False
+>>> x.isalpha()
+False
+>>> x.islower()
+True
+>>> x.isupper()
+False
+
+>>> y="hello"
+>>> y.isalnum()
+True
+>>> y.isalnum()
+True
+
+>>> x="hello world"
+>>> x.isalnum()
+False
+>>> x.isspace()
+False
+
+>>> x=" "
+>>> x.isspace()
+True
+
+join to convert a container to a string, tuple, list, dict, etc
+>>> x=["India",'is','my','country']
+>>> y=" ".join(x)
+>>> y
+'India is my country'
+>>> y="*".join(x)
+>>> y
+'India*is*my*country'
+>>> y="".join(x)
+>>> y
+'Indiaismycountry'
+
+>>> y="*".join("hello")
+>>> y
+'h*e*l*l*o'
+>>> y
+'hello*world'
+
+String is also a container even if it is primitive datatype
+
+>>> y
+'hello*world'
+>>> y.endswith('d')
+True
+>>> y.endswith('h')
+False
+>>> y.startswith('h')
+True
+>>> y.startswith('d')
+False
+
+index raises an exception and find will return -1
+
+>>> x="India is my country. India is in Asia continent"
+>>> x.index("India")
+0
+>>> x.find("India")
+0
+>>> x.find("not")
+-1
+>>> x.index("not")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+
+>>> x="hello"
+>>> x.count('l',0,3)
+1
+>>> x.count('l',2)
+2
+>>> x.count('l',2)
+2
+
+
+24 Dec
+Operators:
+In case of oparaotr we should check
+Arity - no of operands and operators
+		Unary
+		Binary
+Precedence - priority - BODMAS
+Associativity - whether to go left to right or right to left
+	a*b/c
+	R	->	L
+  Unary
+  Compound/Combinational assignments(a+=10)
+  ternary
+  
+  * & + -> commutative
+  
+1: Arithmetic operators:
+
+Unary: +,-
+Binary: +,-,*,/,%
+	** - power
+	>>> 2**2
+	4
+	>>> 2**3
+	8
+	>>> 2**5
+	32	
+
+	// - floor division
+
+	>>> 5.0/2.0
+	2.5
+	>>> 5.0//2.0
+	2.0
+
+2: Relational operators
+
+	>,>=,<,<=,!=,==
+
+3: Logical operators
+
+	and,or,not
+
+	and:
+	  if first is False no need to check second
+	or:
+	  if first is True no need to check second
+
+4: Bitwise operators
+	1 Byte : Smallest addressable memory
+	
+	where used: in network packets, when to work on bits
+
+	Turnoff operator: & --> for bit or set of bits
+	Turn On operator: | --> for bit or set of bits
+	Toggle Bit/s : ^
+	Left Shift : << --> number * 2 raised to n
+	Right Shift : >> --> number / 2 raised to n
+		logical
+		arithmetic
+	Compliment : ~ 
+
+5: Membership operators
+	in, not in
+	
+	>>> 'h' in "hello"
+	True
+	>>> 'i' not in "hello"
+	True
+	
+6: Identity operators --> location to which they are pointing
+	is, is not
+
+	>>> a=1000
+	>>> b=1000
+	>>> c=a
+	>>> a==b
+	True
+	>>> a==c
+	True
+	
+	>>> a is b
+	False
+	>>> a is c
+	True
+
+	>>> id(a)
+	57018488
+	>>> id(b)
+	57016732
+	>>> id(c)
+	57018488
+
+
+25 Dec
+
+if we want multiply something by 2's power then use left shift because mulication is nothing but repetitive addition on ALU so it will be added that many time so using left shift operator is feasible
+
+
+Control Flow Statement
+1: sequencing
+2: selection -  if else
+				if elif elif else
+				else is unconditionally true statement
+   no switch case in python
+3: repetition - eg if there is 3 days training we know it is going to repeat 3 times --> you know how many times to repeat
+				course is going to complete in 3 to 4 months not sure --> do not know how many times to repeat, but you know logical stopping condition
+		enumeration controlled loop: for
+		logically controlled loop: while ,there is no do while in python
+	for <loop_control> in <container>:
+		<statements>
+	>>> for x in range(10):
+	...     print x
+	...
+	0
+	1
+	2
+	3
+	4	
+	5
+	6
+	7
+	8
+	9
+
+	range() --> is a function which provides the list of values
+	range(start_value,end_value,step_value)
+	range(1,100,2) --> odd values from 1 to 99
+	
+	>>> for x in "Jyoti":
+	...     print x
+	...
+	J
+	y
+	o
+	t
+	i
+	                               
+	>>> for i in ['a','e','i','o','u']:
+	...     print i
+	...
+	a
+	e
+	i
+	o
+	u
+	
+	while <condition>:
+		statements
+		
+	
