@@ -11,8 +11,8 @@ class BankBranch:
     def createAccount(self,initialAmount=500):
         b=BankAccount.BankAccount(initialAmount)
         self.acctDict[b.accountNo]=b
-        print self.acctDict
-        print self.getAccountObj(b.accountNo).amount
+        #print self.acctDict
+        #print self.getAccountObj(b.accountNo).amount
     
     def getAccountObj(self,acctNo):
         #print self.acctDict[acctNo].amount
@@ -64,7 +64,7 @@ def main():
                 print("Initial amount cannot be less than 500")
             else:
                 br1.createAccount(amount)
-                print br1.getAccountObj(1)
+                #print br1.getAccountObj(1)
         elif choice==2:
             accountNo=input("Enter account number: ")
             if(not br1.acctDict.__contains__(accountNo)):
@@ -72,7 +72,7 @@ def main():
             else:
                 amount=input("Enter amount to be deposited: ")
                 br1.deposit(accountNo,amount)
-                print br1.getAccountObj(accountNo).amount
+                #print br1.getAccountObj(accountNo).amount
         elif choice==3:
             accountNo=input("Enter account number: ")
             if(not br1.acctDict.__contains__(accountNo)):
@@ -80,7 +80,7 @@ def main():
             else:
                 amount=input("Enter amount to be withdrawn: ")
                 br1.withdraw(accountNo,amount)
-                print br1.getAccountObj(accountNo).amount
+                #print br1.getAccountObj(accountNo).amount
         elif choice==4:
             accountNo=input("Enter account number: ")
             if(not br1.acctDict.__contains__(accountNo)):
@@ -97,8 +97,8 @@ def main():
             else:
                 amount=input("Enter amount to be transfered: ")
                 br1.transfer(donor,acceptor,amount)
-                print br1.getAccountObj(donor).amount
-                print br1.getAccountObj(acceptor).amount
+                #print br1.getAccountObj(donor).amount
+                #print br1.getAccountObj(acceptor).amount
         else:
             return
         choice=Menu()
