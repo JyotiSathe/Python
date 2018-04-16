@@ -30,7 +30,7 @@ def main():
     parser.add_argument("-d",type=str,help="Destination File Name")
     parser.add_argument("-n",type=int,help="Number of lines to Copy, default=0(complete file)",default=0)
     args=parser.parse_args()
-    print type(args.n)
+    print type(args)
     print args
     copyFile(args.i,args.d,args.n)
 

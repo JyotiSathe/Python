@@ -12,9 +12,9 @@ def createDictUsingFile(filename):
             continue
         else:
             splitLine=lineStr.split("=")
-            if(splitLine[1].contains("#")):
+            if("#" in splitLine[1]):
                 splitLine[1]=splitLine[1].split("#")[0]
-            if(splitLine[1].contains("\n")):
+            if("\n" in splitLine[1]):
                 splitLine[1]=splitLine[1].split("\n")[0]
             dict[splitLine[0]]=splitLine[1]
         line=fd.readline()

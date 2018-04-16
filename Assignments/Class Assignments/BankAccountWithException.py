@@ -1,13 +1,12 @@
 #Wa simple bank account class which generates account number automatically
 #and then implement method withdraw, deposit, check balance
 #WA menu driven program to simulate a bank accout operations
+class InsufficientBalance(Exception):
+    pass
 
 class BankAccount():
     accountNo=1
     name="SBI"
-    '''
-        constuctor of BankAccount
-    '''
     def __init__(self,initialAmount=500):
         self.amount=initialAmount
         self.accountNo=BankAccount.accountNo
@@ -25,7 +24,7 @@ class BankAccount():
             print("Enter valid amount")
         else:
             if(amount>self.amount):
-                print("Do not have sufficient balance, balance in account is {}".format(self.amount))
+                raise InsufficientBalance
             else:
                 self.amount-=amount
 
@@ -48,7 +47,10 @@ def main():
     while(choice<=4):
         if(choice==1):
             amount=input("Enter amount to be withdrawn")
-            b1.withdraw(amount)
+            try:
+                b1.withdraw(amount)
+            except InsufficientBalance as e:
+                print ("InsufficientBalance")
             c1=input("do you want to check balance remaining?(y/n)")
             if(c1=='y'):
                 print (b1.checkBalance())
