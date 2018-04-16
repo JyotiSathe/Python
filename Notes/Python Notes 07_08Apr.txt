@@ -1,0 +1,65 @@
+closure of inner function is that it can use the variables of outer function
+
+def ToUpper():
+    while True:
+        input_string=yield
+        print (input_string.upper())
+
+def main():
+    z=ToUpper()
+    #next(z)
+    z.send("Hello")
+
+if __name__=='__main__':
+    main()
+
+	
+Traceback (most recent call last):
+  File "F:/Python/yieldOnRHS.py", line 11, in <module>
+    main()
+  File "F:/Python/yieldOnRHS.py", line 8, in main
+    z.send("Hello")
+TypeError: can't send non-None value to a just-started generator
+>>> 
+====================== RESTART: F:/Python/yieldOnRHS.py ======================
+HELLO
+>>> 
+
+
+pre initilization 
+
+eg in logging
+get time and append to data which is coming
+write Logger Function and Write a decorator which write time in logs
+
+
+initializer, decorator, validator(if we want to check if class has init and del method if not do not construct the class, there we can write decorator function which checks if class contains init and del)
+
+
+if decorator is applied to class then that decorator will not be applied to inherited class
+
+to overcome this disadvantage there is meta classes
+
+
+#WA decorator function which adds init and del method to the classes on which it is applied
+
+if you want to make a class as decorator then you should add __call__ method, that means you want to make it callable 
+
+==========================================================================================================================
+
+3.x
+metaclass=ManagerMeta in brackets
+
+2.7
+__metaclass__=ManagerMeta in class
+
+Iterator
+Generator
+Decorator
+Meta Classes
+
+
+Anonymous Function can be writen in Python using Lambda
+
+
+filter --> return wanted things

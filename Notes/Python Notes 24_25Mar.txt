@@ -1,0 +1,69 @@
+1:read filename through command line
+2:parse the file for details
+[server1]
+ip=10.10.10.1
+port=3490
+status_command="ps"/"top -n 1"
+output_file=server1
+periodic=10 sec
+period=5 iterations
+[server2]
+.
+.
+.
+[servern]
+3:based on it connect to every server and monitor them
+
+
+
+socket --> inter process as well intra process --> end address --> combination of ip address and port (eg  same building different flat number)
+gift of BSD to unix and whole world
+
+
+
+2 ways 
+1: 1 to 1 communication(gmail eg me to bhushan) --> 2 entities and connected that is connection is alive --> 1 to 1 connection and alive --> tcp sockets
+2: Broadcast --> UDP sockets or datagram sockets --> connectionless (1 to many but you dont know)
+3: Multicast --> mobile to one blue tooth speaker but all 4 plays in synchronization (pure)
+
+socket is nothing but a file so return value is descriptor
+
+PIPE on same machine, so only IPC
+IPC --> inter process communication
+RPC --> remote procedure call
+Socket on 2 machines --> IPC and RPC both
+
+sock_stream --> TCP Socket
+sock_dgram --> UDP Socket
+
+af_unix family --> local domain socket
+af_inet family --> internet domain socket
+
+
+3 way handshaking in TCP socket
+
+Server 											Client (consumes services provided by server)
+create socket									create Socket of server ip and port
+bind socket										
+listen to how many clients
+accept	<---------------------------------------Connect
+
+
+thread 
+lightweight process
+own stack
+
+
+threading.Thread(target=SendRecv, args=(connection,client_address))
+target --> keyword argument
+args --> keyword argument a tuple
+
+
+
+
+GIL Global Interpreter Lock
+gil david besley
+
+serialization / mutex
+
+customizing thread class --> you should override run method

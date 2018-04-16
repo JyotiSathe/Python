@@ -1,0 +1,36 @@
+line=fd.readline()
+while line!="":
+	print line
+	fd.seek(20,1)
+	line=fd.read(20)
+	
+	
+	
+
+fd.seek(20,0)
+
+parser.sections()
+parser.get
+parser.options
+
+
+getopt library in c to create options as in unix commands
+
+
+copyFile.py -s <src_file> -d <dest_file>
+
+argparse --> module name
+ArgumentParser --> class name
+
+parses command line argument and creates variable as s and d and will assign file names to it
+
+parser=argparse.ArgumentParser()
+parser.add_argument()
+args=parser.parse_args()
+
+print args
+copyFile(args.src_file,args.dest_file,args.n)
+
+print sys.argv[0]
+print sys.argv
+print type(sys.argv)

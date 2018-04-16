@@ -1,0 +1,51 @@
+RE
+pattern matching
+
+how it works?
+State Machine (TOC)
+
+>>> str1="abcdefghijklmnopqrst"
+>>> import re
+>>> re.match("^1",str1,flags=0)
+>>> re.match("^a",str1,flags=0)
+<_sre.SRE_Match object at 0x04D21C28>
+>>> 
+
+
+match checks at beginning
+>>> x
+>>> x=re.match("h","hello")
+>>> x.start()
+0
+>>> x.end()
+1
+>>> 
+
+>>> x=re.match("e","hello")
+>>> x.start()
+
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    x.start()
+AttributeError: 'NoneType' object has no attribute 'start'
+
+
+search is for first occurence
+>>> x=re.search("h","xyzhellohello")
+>>> x.start(),x.end()
+(3, 4)
+>>> 
+
+
+
+>>> for i in re.finditer("h","xyzhellohelloh"):
+	print i.start()
+	print i.end()
+
+	
+3
+4
+8
+9
+13
+14

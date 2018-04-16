@@ -1,0 +1,210 @@
+import sys
+sys.path.append("") <-- your path
+print sys.path
+print sys.modules
+
+
+Importing Methods
+
+import Threading --> whole py gets loaded and access to all
+from Threading import thread --> whole py gets loaded but access is to only thread
+from datetime import *
+import datetime as dt
+
+package collection of multiple files and modules
+
+README 
+DOCUMENTATION
+MANIFEST
+
+#Setup for robot framework
+
+should always have __init__.py file even if it is empty
+should have readme.txt
+
+from distutils.core import setup
+
+setup(name = "basics", version="1.1", py_modules=['test'], packages=['history', 'operators', 'control_flow', 'data_types'])
+
+F:\Python\Python-master\modules_packages\basics>python setup.py bdist
+running bdist
+running bdist_dumb
+running build
+running build_py
+creating build\lib
+copying test.py -> build\lib
+creating build\lib\history
+copying history\hello_world.py -> build\lib\history
+copying history\__init__.py -> build\lib\history
+creating build\lib\operators
+copying operators\arithmetic.py -> build\lib\operators
+copying operators\bitwise.py -> build\lib\operators
+copying operators\identity.py -> build\lib\operators
+copying operators\logical.py -> build\lib\operators
+copying operators\membership.py -> build\lib\operators
+copying operators\relational.py -> build\lib\operators
+copying operators\__init__.py -> build\lib\operators
+creating build\lib\control_flow
+copying control_flow\if_else.py -> build\lib\control_flow
+copying control_flow\iteration.py -> build\lib\control_flow
+copying control_flow\recursion.py -> build\lib\control_flow
+copying control_flow\__init__.py -> build\lib\control_flow
+creating build\lib\data_types
+copying data_types\complex_type.py -> build\lib\data_types
+copying data_types\primitive_types.py -> build\lib\data_types
+copying data_types\__init__.py -> build\lib\data_types
+installing to build\bdist.win-amd64\dumb
+running install
+running install_lib
+creating build\bdist.win-amd64
+creating build\bdist.win-amd64\dumb
+creating build\bdist.win-amd64\dumb\Python27
+creating build\bdist.win-amd64\dumb\Python27\Lib
+creating build\bdist.win-amd64\dumb\Python27\Lib\site-packages
+creating build\bdist.win-amd64\dumb\Python27\Lib\site-packages\control_flow
+copying build\lib\control_flow\if_else.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\control_flow
+copying build\lib\control_flow\iteration.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\control_flow
+copying build\lib\control_flow\recursion.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\control_flow
+copying build\lib\control_flow\__init__.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\control_flow
+creating build\bdist.win-amd64\dumb\Python27\Lib\site-packages\data_types
+copying build\lib\data_types\complex_type.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\data_types
+copying build\lib\data_types\primitive_types.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\data_types
+copying build\lib\data_types\__init__.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\data_types
+creating build\bdist.win-amd64\dumb\Python27\Lib\site-packages\history
+copying build\lib\history\hello_world.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\history
+copying build\lib\history\__init__.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\history
+creating build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators
+copying build\lib\operators\arithmetic.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators
+copying build\lib\operators\bitwise.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators
+copying build\lib\operators\identity.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators
+copying build\lib\operators\logical.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators
+copying build\lib\operators\membership.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators
+copying build\lib\operators\relational.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators
+copying build\lib\operators\__init__.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators
+copying build\lib\test.py -> build\bdist.win-amd64\dumb\Python27\Lib\site-packages
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\control_flow\if_else.py to if_else.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\control_flow\iteration.py to iteration.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\control_flow\recursion.py to recursion.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\control_flow\__init__.py to __init__.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\data_types\complex_type.py to complex_type.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\data_types\primitive_types.py to primitive_types.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\data_types\__init__.py to __init__.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\history\hello_world.py to hello_world.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\history\__init__.py to __init__.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators\arithmetic.py to arithmetic.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators\bitwise.py to bitwise.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators\identity.py to identity.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators\logical.py to logical.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators\membership.py to membership.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators\relational.py to relational.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\operators\__init__.py to __init__.pyc
+byte-compiling build\bdist.win-amd64\dumb\Python27\Lib\site-packages\test.py to test.pyc
+running install_egg_info
+Writing build\bdist.win-amd64\dumb\Python27\Lib\site-packages\basics-1.1-py2.7.egg-info
+creating 'F:\Python\Python-master\modules_packages\basics\dist\basics-1.1.win-amd64.zip' and adding '.' to it
+adding 'Python27\Lib\site-packages\basics-1.1-py2.7.egg-info'
+adding 'Python27\Lib\site-packages\test.py'
+adding 'Python27\Lib\site-packages\test.pyc'
+adding 'Python27\Lib\site-packages\control_flow\if_else.py'
+adding 'Python27\Lib\site-packages\control_flow\if_else.pyc'
+adding 'Python27\Lib\site-packages\control_flow\iteration.py'
+adding 'Python27\Lib\site-packages\control_flow\iteration.pyc'
+adding 'Python27\Lib\site-packages\control_flow\recursion.py'
+adding 'Python27\Lib\site-packages\control_flow\recursion.pyc'
+adding 'Python27\Lib\site-packages\control_flow\__init__.py'
+adding 'Python27\Lib\site-packages\control_flow\__init__.pyc'
+adding 'Python27\Lib\site-packages\data_types\complex_type.py'
+adding 'Python27\Lib\site-packages\data_types\complex_type.pyc'
+adding 'Python27\Lib\site-packages\data_types\primitive_types.py'
+adding 'Python27\Lib\site-packages\data_types\primitive_types.pyc'
+adding 'Python27\Lib\site-packages\data_types\__init__.py'
+adding 'Python27\Lib\site-packages\data_types\__init__.pyc'
+adding 'Python27\Lib\site-packages\history\hello_world.py'
+adding 'Python27\Lib\site-packages\history\hello_world.pyc'
+adding 'Python27\Lib\site-packages\history\__init__.py'
+adding 'Python27\Lib\site-packages\history\__init__.pyc'
+adding 'Python27\Lib\site-packages\operators\arithmetic.py'
+adding 'Python27\Lib\site-packages\operators\arithmetic.pyc'
+adding 'Python27\Lib\site-packages\operators\bitwise.py'
+adding 'Python27\Lib\site-packages\operators\bitwise.pyc'
+adding 'Python27\Lib\site-packages\operators\identity.py'
+adding 'Python27\Lib\site-packages\operators\identity.pyc'
+adding 'Python27\Lib\site-packages\operators\logical.py'
+adding 'Python27\Lib\site-packages\operators\logical.pyc'
+adding 'Python27\Lib\site-packages\operators\membership.py'
+adding 'Python27\Lib\site-packages\operators\membership.pyc'
+adding 'Python27\Lib\site-packages\operators\relational.py'
+adding 'Python27\Lib\site-packages\operators\relational.pyc'
+adding 'Python27\Lib\site-packages\operators\__init__.py'
+adding 'Python27\Lib\site-packages\operators\__init__.pyc'
+removing 'build\bdist.win-amd64\dumb' (and everything under it)
+
+
+binary distribution --> pyc and build added --> bdist
+source distribution --> only py no pyc and build --> sdist
+
+F:\Python\Python-master\modules_packages\basics>python setup.py sdist
+running sdist
+running check
+warning: check: missing required meta-data: url
+
+warning: check: missing meta-data: either (author and author_email) or (maintainer and maintainer_email) must be supplied
+
+warning: sdist: manifest template 'MANIFEST.in' does not exist (using default file list)
+
+writing manifest file 'MANIFEST'
+creating basics-1.1
+creating basics-1.1\control_flow
+creating basics-1.1\data_types
+creating basics-1.1\history
+creating basics-1.1\operators
+copying files to basics-1.1...
+copying README.txt -> basics-1.1
+copying setup.py -> basics-1.1
+copying test.py -> basics-1.1
+copying control_flow\__init__.py -> basics-1.1\control_flow
+copying control_flow\if_else.py -> basics-1.1\control_flow
+copying control_flow\iteration.py -> basics-1.1\control_flow
+copying control_flow\recursion.py -> basics-1.1\control_flow
+copying data_types\__init__.py -> basics-1.1\data_types
+copying data_types\complex_type.py -> basics-1.1\data_types
+copying data_types\primitive_types.py -> basics-1.1\data_types
+copying history\__init__.py -> basics-1.1\history
+copying history\hello_world.py -> basics-1.1\history
+copying operators\__init__.py -> basics-1.1\operators
+copying operators\arithmetic.py -> basics-1.1\operators
+copying operators\bitwise.py -> basics-1.1\operators
+copying operators\identity.py -> basics-1.1\operators
+copying operators\logical.py -> basics-1.1\operators
+copying operators\membership.py -> basics-1.1\operators
+copying operators\relational.py -> basics-1.1\operators
+creating 'dist\basics-1.1.zip' and adding 'basics-1.1' to it
+adding 'basics-1.1\PKG-INFO'
+adding 'basics-1.1\README.txt'
+adding 'basics-1.1\setup.py'
+adding 'basics-1.1\test.py'
+adding 'basics-1.1\control_flow\if_else.py'
+adding 'basics-1.1\control_flow\iteration.py'
+adding 'basics-1.1\control_flow\recursion.py'
+adding 'basics-1.1\control_flow\__init__.py'
+adding 'basics-1.1\data_types\complex_type.py'
+adding 'basics-1.1\data_types\primitive_types.py'
+adding 'basics-1.1\data_types\__init__.py'
+adding 'basics-1.1\history\hello_world.py'
+adding 'basics-1.1\history\__init__.py'
+adding 'basics-1.1\operators\arithmetic.py'
+adding 'basics-1.1\operators\bitwise.py'
+adding 'basics-1.1\operators\identity.py'
+adding 'basics-1.1\operators\logical.py'
+adding 'basics-1.1\operators\membership.py'
+adding 'basics-1.1\operators\relational.py'
+adding 'basics-1.1\operators\__init__.py'
+removing 'basics-1.1' (and everything under it)
+
+
+
+
+
+when you develop any python progeam use below modules:
+pyATS
+Pylint

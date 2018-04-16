@@ -1,0 +1,162 @@
+#WA Python Program which validates if else statement
+
+after if there should be something written which contains relational operator then a colon
+then on next line is there should be space
+
+
+#WAP to extract documentation string from given python file
+class Human:
+	'''
+		Human Class
+	'''
+	
+	
+	
+help(Simple_class.Human)
+
+===============================================================================================
+
+Error Handling:
+
+caught exception
+uncaught exception
+
+language defined exceptions
+user defined exceptions
+
+
+exception is also an object
+
+try-except block
+
+try --> which will raise runtime exception
+except --> catch
+finally --> finally
+
+
+try:
+	#try block
+except Exception as e:
+	print e
+except ArithmeticError as e:
+	print e
+except NameError as e:
+	print e
+finally:	
+	print "Always executed"
+	
+Exception is a base class in a Python
+
+when you have multiple except blocks you should make sure than derived exception classes first and Exception should be put in last
+
+finally --> here resources can be freed  
+
+try:
+except: 
+else: --> when there is no exception
+
+
+#WAP to accept a python 2.x script and convert it to be compatible it with 3.x 
+'''
+print 
+input
+'''
+
+raise --> throw
+===========================================================================================================
+
+Pickle
+
+>>> import pickle
+>>> input_dict={"a":1,"b":2,"c":3}
+>>> serialized_stream=pickle.dumps(input_dict)
+>>> serialized_stream
+"(dp0\nS'a'\np1\nI1\nsS'c'\np2\nI3\nsS'b'\np3\nI2\ns."
+>>> deserialized_stream=pickle.loads(serialized_stream)
+>>> deserialized_stream
+{'a': 1, 'c': 3, 'b': 2}
+
+
+>>> input_dict={"a":1,"b":2,"c":3}
+>>> fd=open("F:/Python/destFile.txt","wb")
+>>> pickle.dump(input_dict,fd)
+>>> input_dict={"c":1,"d":2,"e":3}
+>>> pickle.dump(input_dict,fd)
+>>> fd.close()
+>>> fd=open("F:/Python/destFile.txt","rb")
+>>> deserialzed_stream=pickle.load(fd)
+>>> deserialzed_stream
+{'a': 1, 'c': 3, 'b': 2}
+>>> deserialzed_stream=pickle.load(fd)
+>>> deserialzed_stream
+{'c': 1, 'e': 3, 'd': 2}
+>>> input_list=[1,2,3,4]
+>>> fd=open("F:/Python/list.txt","wb")
+>>> pickle.dump(input_list,fd)
+>>> input_list=[1,2,3,4,5,6,7]
+>>> pickle.dump(input_list,fd)
+>>> fd.close()
+>>> fd=open("F:/Python/list.txt","rb")
+>>> deserialzed_stream=pickle.load(fd)
+>>> deserialzed_stream
+[1, 2, 3, 4]
+>>> deserialzed_stream=pickle.load(fd)
+>>> deserialzed_stream
+[1, 2, 3, 4, 5, 6, 7]
+
+
+
+
+
+
+HTML document parser:
+HtmlParser
+BeautifulSoup --> pip.exe  install bs4
+
+C:\Python27\Scripts>dir
+ Volume in drive C has no label.
+ Volume Serial Number is CE81-70ED
+
+ Directory of C:\Python27\Scripts
+
+18-03-2018  10:27 AM    <DIR>          .
+18-03-2018  10:27 AM    <DIR>          ..
+12-11-2017  09:54 PM            89,449 easy_install-2.7.exe
+12-11-2017  09:54 PM            89,449 easy_install.exe
+18-03-2018  10:27 AM            89,421 pip.exe
+18-03-2018  10:27 AM            89,421 pip2.7.exe
+18-03-2018  10:27 AM            89,421 pip2.exe
+18-03-2018  10:27 AM            89,428 wheel.exe
+               6 File(s)        536,589 bytes
+               2 Dir(s)  84,972,392,448 bytes free
+
+C:\Python27\Scripts>pip.exe install bs4
+Collecting bs4
+  Downloading bs4-0.0.1.tar.gz
+Collecting beautifulsoup4 (from bs4)
+  Downloading beautifulsoup4-4.6.0-py2-none-any.whl (86kB)
+    100% |################################| 92kB 173kB/s
+Building wheels for collected packages: bs4
+  Running setup.py bdist_wheel for bs4 ... done
+  Stored in directory: C:\Users\Assus\AppData\Local\pip\Cache\wheels\84\67\d4\9e09d9d5adede2ee1c7b7e8775ba3fbb04d07c4f946f0e4f11
+Successfully built bs4
+Installing collected packages: beautifulsoup4, bs4
+Successfully installed beautifulsoup4-4.6.0 bs4-0.0.1
+
+C:\Python27\Scripts>python
+Python 2.7.14 (v2.7.14:84471935ed, Sep 16 2017, 20:19:30) [MSC v.1500 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from bs4 import BeautifulSoup
+>>>
+
+UI Framework --> Qt, Tkinter
+
+Event Management /Handling  --> callback mechanism
+
+
+
+click and slot
+
+register signals for that object
+
+uic --> compiler to convert ui file code to c++ code for creating to components

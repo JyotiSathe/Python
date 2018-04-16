@@ -1,0 +1,55 @@
+producer produces until buffer gets full
+if buffer gets full
+producer has to wait until consumer consumes
+
+
+consumer has to wait till producer produces
+
+
+producer produces
+
+consumer conditional Variable: False in Consumer
+when producer produces it make it True
+
+producer conditional Variable: False in Producer when it Sleep
+when consumer consumes it make it True
+
+from threading import Event
+
+
+
+semaphores
+
+multiple instace of same object
+
+methods:
+release and wait/signal and wait/p and v
+
+not waiting for single release
+
+mutex --> waiting for single resource
+
+Semaphore --> if releases are called beyond number of instance it will not give any error or exception
+Bounded Semaphore  --> this will give ValueError
+
+
+Iterator --> already present data is returned
+
+Generator --> 
+
+#wap to accept a range from user and generate factorials of the given range
+#wap to accept a range from user and generate fibonacci numbers present in the given range
+
+
+
+2.7
+when you are writing class object as an iterator you need to provide next method
+
+3.x
+__next__
+
+
+#WAP to accept a name of file and the pattern to be searched at beginning. Write a generator which returns the lines matching the given pattern
+#WAP to return squares of the numbers in the given range based on generator
+#wa generator which returns multiple of 64 in the given range
+#WAP to generate multiples of 11 

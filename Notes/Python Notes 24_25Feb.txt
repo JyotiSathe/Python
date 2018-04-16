@@ -1,0 +1,35 @@
+
+real world representation
+interaction of multiple objects
+
+real world entity --> object
+
+
+for python class is also object
+
+4 properties of object
+
+for every object there is identity
+every object has state (static and dynamic) values of attribute (i am listening )
+behavior methods (changing attributes)
+responsibility 
+
+
+
+class 
+Methods:
+	- Manager methods --> creation and destruction of objec
+		constructor (initialize) __init__
+		destructor (Deinitialize) __del__
+	- Accessor/ getter methods --> returns state of object
+	- Mutators/ setter methods --> change state of object
+Attributes:
+	- Object attribute 
+	- Class attribute (static attribute in java)
+		eg: all person of India country
+	
+	
+	
+
+initial state <-- constructor 
+No overloading in python so we cannot have multiple contructors, so there is no case to have same name to constructor as class

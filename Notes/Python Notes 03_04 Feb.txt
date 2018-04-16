@@ -1,0 +1,85 @@
+>>> fd
+<open file 'MyDetails.txt', mode 'r' at 0x0000000004F06150>
+>>> fd.fileno()
+3
+>>> fd.fileno()
+3
+>>> fd1=open("file1.txt")
+>>> fd1.fileno()
+4
+>>> fd.fileno()
+3
+>>> fd1.fileno()
+4
+>>> fd2=open("file2.txt")
+>>> fd2.fileno()
+5
+>>> help(fd)
+
+>>> fd.read()
+'Name=Jyoti\nAge=24\nCompany=TCS\nExperience=Three Years\nTechnology=Unix'
+>>> fd.readline()
+''
+>>> fd.close()
+>>> fd=open("MyDetails.txt")
+>>> fd.seek(0)
+>>> fd.read()
+'Name=Jyoti\nAge=24\nCompany=TCS\nExperience=Three Years\nTechnology=Unix'
+>>> fd.tell()
+72L
+>>> fd.seek(10,0)
+>>> fd.tell()
+10L
+>>> fd.seek(10,1)
+>>> fd.tell()
+20L
+>>> fd.seek(-100,0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IOError: [Errno 22] Invalid argument
+>>> fd.seek(-50,2)
+>>> fd.tell()
+22L
+>>> fd.seek(100,1)
+>>> fd.tell()
+122L
+>>> fd.read()
+''
+
+>>> fd=open("MyDetails.txt")
+>>> fd.readlines()
+['Name=Jyoti\n', 'Age=24\n', 'Company=TCS\n', 'Experience=Three Years\n', 'Technology=Unix']
+>>> fd.tell()
+72L
+>>> fd.close()
+>>> fd=open("MyDetails.txt")
+>>> line=fd.readline()
+>>> while line!="":
+...     print line
+...     line=fd.readline()
+...
+Name=Jyoti
+
+Age=24
+
+Company=TCS
+
+Experience=Three Years
+
+Technology=Unix
+
+>>> fd.close()
+>>> fd=open("MyDetails.txt")
+>>> x=fd.readlines()
+>>> for line in x:
+...     print line
+...
+Name=Jyoti
+
+Age=24
+
+Company=TCS
+
+Experience=Three Years
+
+Technology=Unix

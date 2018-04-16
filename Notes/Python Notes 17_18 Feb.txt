@@ -1,0 +1,138 @@
+1)
+	
+2) if we open a file and we want to close the file immediately that means we need to free it
+
+if we open file , exclusive lock is enabled then other user cannot access it
+
+open file --> hold data on temp file --> close the file
+then you can use temp file
+
+>>> fd=open("F:\Python\MyDetails.txt")
+>>> fd.closed
+False
+>>> fd.mode
+'r'
+>>> fd.name
+'F:\\Python\\MyDetails.txt'
+
+flush is the method which flushes data from buffer 
+
+buffer
+buffer cache's buffer
+hard disk
+
+when we write any file and we want to make sure that it is written to local disk then we should use flush
+
+Manipulating path of the file
+
+abspath --> 
+basename --> deals with given string, it do not check if the file is present or not
+exists --> checks if file is present or not
+
+>>> import os.path
+>>> os.path.abspath("F:\Python\MyDetails.txt")
+'F:\\Python\\MyDetails.txt'
+>>> os.path.abspath("MyDetails.txt")
+'C:\\Python27\\MyDetails.txt'
+>>> os.path.basename("MyDetails.txt")
+'MyDetails.txt'
+>>> os.path.basename("F:\Python\MyDetails.txt")
+'MyDetails.txt'
+>>> os.path.basename("F:\Python20\list.txt")
+'list.txt'
+>>> os.path.exist("F:\Python\Mydetails.txt")
+
+Traceback (most recent call last):
+  File "<pyshell#7>", line 1, in <module>
+    os.path.exist("F:\Python\Mydetails.txt")
+AttributeError: 'module' object has no attribute 'exist'
+>>> os.path.exists("F:\Python\Mydetails.txt")
+True
+>>> os.path.exist("F:\Python\Mydetails2.txt")
+
+Traceback (most recent call last):
+  File "<pyshell#9>", line 1, in <module>
+    os.path.exist("F:\Python\Mydetails2.txt")
+AttributeError: 'module' object has no attribute 'exist'
+>>> os.path.exists("F:\Python\Mydetailsw.txt")
+False
+>>> fd=open(""F:\Python\Mydetailsw.txt"")
+SyntaxError: invalid syntax
+>>> fd=open("F:\Python\Mydetailsw.txt")
+
+Traceback (most recent call last):
+  File "<pyshell#12>", line 1, in <module>
+    fd=open("F:\Python\Mydetailsw.txt")
+IOError: [Errno 2] No such file or directory: 'F:\\Python\\Mydetailsw.txt'
+>>> os.path.commonprefix(["F:\Python\MyDetails.txt","F:\Python\srcFile.txt","F:\Python\FilterFile.txt","C:\Users\Assus\Documents\servers.conf")
+		     
+SyntaxError: invalid syntax
+>>> os.path.commonprefix(["F:\Python\MyDetails.txt","F:\Python\srcFile.txt","F:\Python\FilterFile.txt","C:\Users\Assus\Documents\servers.conf]")
+		     
+SyntaxError: invalid syntax
+>>> os.path.commonprefix(["F:\Python\MyDetails.txt","F:\Python\srcFile.txt","F:\Python\FilterFile.txt","C:\Users\Assus\Documents\servers.conf"])
+''
+>>> lst=["F:\Python\MyDetails.txt","F:\Python\srcFile.txt","F:\Python\FilterFile.txt","C:\Users\Assus\Documents\servers.conf"]
+>>> os.path.commonprefix(lst)
+''
+>>> lst=["F:\Python\MyDetails.txt","F:\Python\srcFile.txt","F:\Python\FilterFile.txt"]
+>>> 
+KeyboardInterrupt
+>>> os.path.commonprefix(lst)
+'F:\\Python\\'
+>>> os.path.dirname("C:\Users\Assus\Documents\servers.conf")
+'C:\\Users\\Assus\\Documents'
+
+>>> os.path.dirname("C:\Users\Assus\Documents")
+'C:\\Users\\Assus'
+>>> os.path.dirname("C:\\Users\\Assus\\Documents\\")
+'C:\\Users\\Assus\\Documents'
+
+>>> os.path.isdir("C:\\Users\\Assus\\Documents\\")
+True
+>>> os.path.isdir("C:\\Users\\Assus\\Documents\\servers.conf")
+False
+>>> os.path.isfile("C:\\Users\\Assus\\Documents\\servers.conf")
+True
+>>> os.path.isfile("C:\\Users\\Assus\\Documents\\")
+False
+>>> os.path.islink("C:\\Users\\Assus\\Documents\\servers.conf")
+False
+>>> 
+
+>>> os.path.islink("C:\Users\Assus\Desktop\IDLE (Python GUI).lnk")
+False
+>>> os.path.islink("C:\Users\Assus\Desktop\KMPlayer.lnk")
+False
+>>> 
+
+windows return False for islink
+
+
+>>> os.path.join("F:","Python","srcFile.txt")
+'F:Python\\srcFile.txt'
+>>> os.path.join("F:\Python","srcFile.txt")
+'F:\\Python\\srcFile.txt'
+>>> os.path.normcase("F:\Python\mydetails.txt")
+'f:\\python\\mydetails.txt'
+>>> os.path.normcase("F:\Python\mydetails.txt").exists()
+
+Traceback (most recent call last):
+  File "<pyshell#35>", line 1, in <module>
+    os.path.normcase("F:\Python\mydetails.txt").exists()
+AttributeError: 'str' object has no attribute 'exists'
+>>> os.path.split("F:\Python\MyDetails.txt")
+('F:\\Python', 'MyDetails.txt')
+>>> os.path.split("")
+KeyboardInterrupt
+>>> os.path.split("C:\\Users\\Assus\\Documents\\")
+('C:\\Users\\Assus\\Documents', '')
+>>> os.path.splitext("C:\Users\Assus\Desktop\IDLE (Python GUI).lnk")
+('C:\\Users\\Assus\\Desktop\\IDLE (Python GUI)', '.lnk')
+>>> os.path.expanduser("~/My Documents/servers.conf")
+'C:\\Users\\Assus/My Documents/servers.conf'
+>>> 
+
+function is registered 
+
+if any event gets executed the function is callback function
